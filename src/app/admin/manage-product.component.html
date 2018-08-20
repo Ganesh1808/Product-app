@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-4">
+    <button type = "button" class = "btn btn-primary m-1" (click)="addNew()">Add New</button>
+      <table class="table table-dark table-striped">
+          <thead><tr><th>Product Name</th><th>Unit Price</th><th>Stock Level</th><th></th></tr></thead>
+          <tbody>
+            <tr *ngFor="let item of productList">
+              <td>{{item.productName}}</td>
+              <td>{{item.unitPrice}}</td>
+              <td>{{item.unitsInStock}}</td>
+              <td>
+                <button class="btn btn-sm btn-warning mr-2" (click)="selectedModel=item;">Select</button> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+      <app-manage-product-detail [model]="selectedModel"
+        (createEvent)="create($event)"
+        (updateEvent)="update($event)"
+        (deleteEvent)="delete($event)"></app-manage-product-detail>
+    </div>
+</div>

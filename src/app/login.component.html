@@ -1,0 +1,24 @@
+<div class="row" *ngIf="!authService.isLoggedIn">
+  <div class="col-4 col-md-offset-4">
+    <h3>Log In</h3>
+    <form>
+      <div class="form-group">
+        <label class="control-label" for="userName">User Name: </label>
+        <input type="text" name="userName" id="userName" [(ngModel)]="model.userName" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="pssword">Password : </label>
+        <input type="text" name="password" id="password" [(ngModel)]="model.password" />
+      </div>
+      <div class="form-row">
+        <button class="btn btn-primary pull-right" (click)="login()">Sign In</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row" *ngIf="authService.isLoggedIn">
+  <div class="col-4 col-md-offset-4">
+    <button class="btn btn-primary pull-right" (click)="logout()">Sign Out</button>
+  </div>
+</div>
+<p>{{message}}</p>
